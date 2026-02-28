@@ -183,7 +183,7 @@
                     </a>
                 </div>
                 <div class="flex items-center gap-2 text-xs md:text-sm text-slate-500 font-medium">
-                    <i class="fa-solid fa-shield-halved text-brand-purple"></i> Secure Checkout via Razorpay & PayU
+                    <i class="fa-solid fa-shield-halved text-brand-purple"></i> Secure Checkout via Razorpay
                 </div>
             </div>
         </div>
@@ -667,9 +667,9 @@
                         </li>
                     </ul>
                     
-                    <button onclick="document.getElementById('checkout-modal').classList.remove('hidden')" class="w-full block text-center px-4 py-4 md:px-6 md:py-4 rounded-xl bg-slate-800 hover:bg-slate-700 border border-white/10 text-white font-bold transition-colors text-base md:text-lg">
+                    <a href="https://rzp.io/rzp/bUPzmgpV" target="_blank" class="w-full block text-center px-4 py-4 md:px-6 md:py-4 rounded-xl bg-slate-800 hover:bg-slate-700 border border-white/10 text-white font-bold transition-colors text-base md:text-lg">
                         Enroll in Foundation – ₹499
-                    </button>
+                    </a>
                 </div>
 
                 <!-- Advanced Pricing -->
@@ -704,12 +704,12 @@
                     
                     <div class="relative group w-full">
                         <div class="absolute -inset-1 brand-gradient rounded-xl blur opacity-60 group-hover:opacity-100 transition duration-300"></div>
-                        <button onclick="document.getElementById('checkout-modal').classList.remove('hidden')" class="relative w-full block text-center px-4 py-4 md:px-6 md:py-4 rounded-xl brand-gradient text-white font-bold transition-all transform group-hover:-translate-y-1 text-base md:text-lg">
+                        <a href="https://rzp.io/rzp/qwYJvOq" target="_blank" class="relative w-full block text-center px-4 py-4 md:px-6 md:py-4 rounded-xl brand-gradient text-white font-bold transition-all transform group-hover:-translate-y-1 text-base md:text-lg">
                             Enroll in Advanced – ₹1499
-                        </button>
+                        </a>
                     </div>
                     <div class="text-center mt-4 text-xs md:text-sm text-slate-400 flex items-center justify-center gap-1.5 md:gap-2 font-medium">
-                        <i class="fa-solid fa-shield-halved text-brand-purple"></i> Secure payments via Razorpay & PayU
+                        <i class="fa-solid fa-shield-halved text-brand-purple"></i> Secure payments via Razorpay
                     </div>
                 </div>
             </div>
@@ -765,64 +765,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- Simple Custom Modal for "Checkout" -->
-    <div id="checkout-modal" class="hidden fixed inset-0 z-[100] overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-        <div class="flex items-end sm:items-center justify-center min-h-screen pt-4 px-4 pb-0 text-center sm:p-0">
-            <div class="fixed inset-0 bg-brand-bg/90 backdrop-blur-md transition-opacity" aria-hidden="true" onclick="document.getElementById('checkout-modal').classList.add('hidden')"></div>
-            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-            <div class="inline-block align-bottom glass-card rounded-t-3xl sm:rounded-3xl text-left overflow-hidden shadow-2xl shadow-brand-purple/20 transform transition-all sm:my-8 sm:align-middle sm:max-w-md w-full border-t border-l border-r border-white/10 sm:border-b">
-                <div class="absolute top-0 left-0 w-full h-1 brand-gradient"></div>
-                
-                <!-- Mobile Drag Handle indicator -->
-                <div class="w-full flex justify-center pt-3 pb-1 sm:hidden" onclick="document.getElementById('checkout-modal').classList.add('hidden')">
-                    <div class="w-12 h-1.5 bg-white/20 rounded-full"></div>
-                </div>
-                
-                <div class="px-5 pt-4 pb-6 sm:px-8 sm:pt-8">
-                    <div class="sm:flex sm:items-start flex-col items-center">
-                        <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 sm:h-16 sm:w-16 rounded-2xl brand-gradient/20 border border-brand-purple/30 mb-3 sm:mb-4">
-                            <i class="fa-solid fa-lock text-brand-fuchsia text-lg sm:text-xl"></i>
-                        </div>
-                        <div class="text-center w-full">
-                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-2" id="modal-title">
-                                Choose Payment Method
-                            </h3>
-                            <div class="mt-2 mb-5 sm:mb-6">
-                                <p class="text-xs sm:text-sm text-slate-400 font-light leading-relaxed">
-                                    Select your preferred secure payment gateway to complete your enrollment.
-                                </p>
-                            </div>
-                            
-                            <div class="space-y-3 sm:space-y-4">
-                                <a href="https://rzp.io/rzp/nb27eEvW" target="_blank" class="flex items-center justify-between w-full p-3.5 sm:p-4 rounded-xl border border-white/10 bg-[#02042b] hover:bg-[#02042b]/80 transition-colors text-white font-bold group">
-                                    <div class="flex items-center gap-3">
-                                        <i class="fa-solid fa-credit-card text-[#3395ff] text-lg sm:text-xl"></i>
-                                        <span class="text-sm sm:text-base">Pay via Razorpay</span>
-                                    </div>
-                                    <i class="fa-solid fa-arrow-right opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity text-[#3395ff]"></i>
-                                </a>
-                                
-                                <a href="https://v.payu.in/PAYUMN/MIlsLvQa0q7U" target="_blank" class="flex items-center justify-between w-full p-3.5 sm:p-4 rounded-xl border border-white/10 bg-[#00a184] hover:bg-[#00a184]/80 transition-colors text-white font-bold group">
-                                    <div class="flex items-center gap-3">
-                                        <i class="fa-solid fa-wallet text-white text-lg sm:text-xl"></i>
-                                        <span class="text-sm sm:text-base">Pay via PayU</span>
-                                    </div>
-                                    <i class="fa-solid fa-arrow-right opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity text-white"></i>
-                                </a>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-black/20 px-5 py-4 sm:px-8 flex justify-center border-t border-white/5 pb-8 sm:pb-4">
-                    <button type="button" class="w-full inline-flex justify-center rounded-xl border border-white/10 shadow-sm px-6 py-3 bg-transparent text-sm sm:text-base font-bold text-slate-300 hover:bg-white/5 hover:text-white focus:outline-none transition-colors" onclick="document.getElementById('checkout-modal').classList.add('hidden')">
-                        Cancel
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Scripts -->
     <script>
