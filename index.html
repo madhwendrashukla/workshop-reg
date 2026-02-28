@@ -127,12 +127,10 @@
     <nav class="fixed w-full z-50 glass-card transition-all duration-300 border-b border-white/5">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16 md:h-20">
-                <div class="flex-shrink-0 font-extrabold text-lg md:text-2xl tracking-tight flex items-center gap-2">
-                    <div class="w-7 h-7 md:w-8 md:h-8 rounded-lg brand-gradient flex items-center justify-center shadow-[0_0_15px_rgba(139,92,246,0.5)]">
-                        <i class="fa-solid fa-layer-group text-white text-xs md:text-sm"></i>
-                    </div>
-                    <span>Startup<span class="text-brand-gradient hidden sm:inline">School</span></span>
-                </div>
+                <a href="https://thestartupschool.in" class="flex-shrink-0 font-extrabold text-lg md:text-2xl tracking-tight flex items-center gap-2 md:gap-3 hover:opacity-90 transition-opacity">
+                    <img src="logo.png" alt="TheStartupSchool" class="w-8 h-8 md:w-10 md:h-10 rounded-lg shadow-[0_0_15px_rgba(139,92,246,0.5)] object-cover">
+                    <span>The<span class="text-brand-gradient">Startup</span><span class="hidden sm:inline">School</span></span>
+                </a>
                 <div>
                     <div class="relative group">
                         <div class="absolute -inset-0.5 brand-gradient rounded-lg blur opacity-30 group-hover:opacity-70 transition duration-300"></div>
@@ -553,30 +551,33 @@
                 </div>
 
                 <!-- Mentor 2 -->
-      <div class="glass-card rounded-2xl md:rounded-3xl overflow-hidden flex flex-col group border border-white/5 hover:border-brand-purple/50 transition-all duration-300 hover:-translate-y-2">
+                <div class="glass-card rounded-2xl md:rounded-3xl overflow-hidden flex flex-col group border border-white/5 hover:border-brand-fuchsia/50 transition-all duration-300 hover:-translate-y-2 relative">
+                    <!-- Glow effect behind the center card -->
+                    <div class="absolute inset-0 brand-gradient opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                    
                     <div class="h-48 md:h-56 bg-brand-bg relative overflow-hidden">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-bg to-transparent z-10"></div>
-                        <div class="w-full h-full opacity-20 bg-[radial-gradient(#8b5cf6_1px,transparent_1px)] [background-size:20px_20px] group-hover:scale-110 transition-transform duration-700"></div>
+                        <div class="w-full h-full opacity-20 bg-[radial-gradient(#d946ef_1px,transparent_1px)] [background-size:20px_20px] group-hover:scale-110 transition-transform duration-700"></div>
                         <div class="absolute bottom-4 left-5 md:bottom-5 md:left-6 z-20">
-                            <span class="text-[10px] md:text-xs font-extrabold tracking-widest uppercase text-brand-purple drop-shadow-md">The Narrative Strategist</span>
+                            <span class="text-[10px] md:text-xs font-extrabold tracking-widest uppercase text-brand-fuchsia drop-shadow-md">The Financial Architect</span>
                         </div>
                     </div>
-                    <div class="p-6 md:p-8 flex-1 flex flex-col">
+                    <div class="p-6 md:p-8 flex-1 flex flex-col relative z-10">
                         <h3 class="text-xl md:text-2xl font-bold mb-2 text-white">[Insert Name]</h3>
                         
                         <div class="mt-3 md:mt-4 space-y-3 md:space-y-4 flex-1">
                             <div>
                                 <h4 class="text-[10px] md:text-xs font-bold uppercase text-slate-500 mb-1 md:mb-1.5 tracking-wider">Background</h4>
-                                <p class="text-xs md:text-sm text-slate-400 font-light leading-relaxed">[Insert 1-2 powerful bullet points, e.g., "Reviewed 500+ pitch decks," or "Helped founders secure $X in seed funding."]</p>
+                                <p class="text-xs md:text-sm text-slate-400 font-light leading-relaxed">[Insert 1-2 powerful bullet points, e.g., "Financial Modeler," or "Managed $X in VC funds."]</p>
                             </div>
                             <div>
                                 <h4 class="text-[10px] md:text-xs font-bold uppercase text-slate-500 mb-1 md:mb-1.5 tracking-wider">Focus</h4>
-                                <p class="text-xs md:text-sm font-semibold text-slate-200">Pitch Deck structure and Investor Psychology.</p>
+                                <p class="text-xs md:text-sm font-semibold text-slate-200">Startup metrics, unit economics, and financial jargon.</p>
                             </div>
                         </div>
                         
-                        <button class="mt-6 md:mt-8 w-full py-2.5 md:py-3 px-4 bg-white/5 hover:bg-brand-purple border border-white/10 hover:border-brand-purple rounded-xl text-xs md:text-sm font-bold transition-all flex items-center justify-center gap-2 group/btn">
-                            <i class="fa-solid fa-play text-brand-purple group-hover/btn:text-white transition-colors"></i> Watch 60s Intro
+                        <button class="mt-6 md:mt-8 w-full py-2.5 md:py-3 px-4 bg-white/5 hover:bg-brand-fuchsia border border-white/10 hover:border-brand-fuchsia rounded-xl text-xs md:text-sm font-bold transition-all flex items-center justify-center gap-2 group/btn">
+                            <i class="fa-solid fa-play text-brand-fuchsia group-hover/btn:text-white transition-colors"></i> Watch 60s Intro
                         </button>
                     </div>
                 </div>
@@ -722,11 +723,6 @@
         <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[400px] md:w-[800px] h-[150px] md:h-[300px] brand-gradient rounded-[100%] filter blur-[60px] md:blur-[100px] opacity-20 pointer-events-none"></div>
 
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in-section relative z-10">
-            <div class="inline-flex items-center justify-center gap-2 md:gap-3 px-4 py-1.5 md:px-6 md:py-2 rounded-full bg-white/5 border border-white/10 text-white mb-8 md:mb-10 text-xs md:text-sm font-bold backdrop-blur-md shadow-lg shadow-black/50 w-full sm:w-auto">
-                <i class="fa-solid fa-hourglass-half text-brand-fuchsia animate-pulse"></i>
-                Cohorts strictly capped at 60 founders
-            </div>
-            
             <h2 class="text-4xl md:text-5xl lg:text-7xl font-extrabold mb-6 md:mb-8 tracking-tight">The Final Decision</h2>
             
             <p class="text-lg md:text-2xl text-slate-300 mb-8 md:mb-10 leading-relaxed font-light">
@@ -757,13 +753,11 @@
     <footer class="bg-brand-bg py-10 md:py-12 border-t border-white/5 text-center relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-center gap-2 md:gap-3 mb-4 md:mb-6">
-                <div class="w-6 h-6 md:w-8 md:h-8 rounded-lg brand-gradient flex items-center justify-center opacity-80">
-                    <i class="fa-solid fa-layer-group text-white text-[10px] md:text-sm"></i>
-                </div>
-                <span class="text-white font-bold tracking-widest uppercase text-base md:text-lg">TheStartupSchool</span>
+                <img src="logo.png" alt="TheStartupSchool Logo" class="w-6 h-6 md:w-8 md:h-8 rounded-md opacity-80 object-cover">
+                <span class="text-white font-bold tracking-widest uppercase text-base md:text-lg">The<span class="text-brand-gradient">Startup</span>School</span>
             </div>
             <p class="text-slate-500 text-xs md:text-sm font-medium mb-4 md:mb-0">
-                &copy; 2024 TheStartupSchool. All rights reserved. 
+                &copy; 2026 TheStartupSchool. All rights reserved. 
             </p>
             <div class="mt-2 md:mt-6 flex justify-center gap-4 md:gap-6 text-xs md:text-sm text-slate-500 font-medium">
                 <a href="#" class="hover:text-brand-fuchsia transition-colors">Privacy Policy</a>
