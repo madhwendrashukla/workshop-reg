@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheStartupSchool</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            bg: '#0f172a',
+                            purple: '#8b5cf6',
+                            fuchsia: '#d946ef',
+                        }
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(20px, -30px) scale(1.05)' },
+                            '66%': { transform: 'translate(-15px, 15px) scale(0.95)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+        
+        /* Core Brand Gradient Utilities */
+        .brand-gradient {
+            background: linear-gradient(to right, #8b5cf6, #d946ef);
+        }
+        .text-brand-gradient {
+            background: linear-gradient(to right, #8b5cf6, #d946ef);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .border-brand-gradient {
+            position: relative;
+        }
+        .border-brand-gradient::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 2px;
+            background: linear-gradient(to right, #8b5cf6, #d946ef);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        /* Ambient UI */
+        .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .bg-grid-pattern {
+            background-image: 
+                linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+        @media (min-width: 768px) {
+            .bg-grid-pattern { background-size: 40px 40px; }
+        }
+
+        /* Fade Animations */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            visibility: hidden;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            will-change: opacity, visibility, transform;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+            visibility: visible;
+        }
+
+        /* Icon Gradient */
+        .icon-gradient {
+            background: linear-gradient(135deg, #8b5cf6, #d946ef);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-purple selection:text-white relative">
+
+    <!-- Global Background Texture -->
+    <div class="fixed inset-0 bg-grid-pattern z-[-1] pointer-events-none"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-card transition-all duration-300 border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <a href="https://thestartupschool.in" class="flex-shrink-0 font-extrabold text-lg md:text-2xl tracking-tight flex items-center gap-2 md:gap-3 hover:opacity-90 transition-opacity">
+                    <img src="logo.png" alt="TheStartupSchool" class="w-8 h-8 md:w-10 md:h-10 rounded-lg shadow-[0_0_15px_rgba(139,92,246,0.5)] object-cover">
+                    <span>The<span class="text-brand-gradient">Startup</span>School</span>
+                </a>
+                <div>
+                    <div class="relative group">
+                        <div class="absolute -inset-0.5 brand-gradient rounded-lg blur opacity-30 group-hover:opacity-70 transition duration-300"></div>
+                        <a href="#pricing" class="relative inline-flex items-center justify-center px-4 py-2 md:px-5 md:py-2.5 text-xs md:text-sm font-semibold rounded-lg text-white bg-brand-bg border border-white/10 hover:bg-transparent transition-all">
+                            Secure Your Seat
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-16 md:pt-40 md:pb-24 lg:pt-56 lg:pb-32 overflow-hidden">
+        <!-- Animated Background Orbs -->
+        <div class="absolute top-0 -left-4 w-64 h-64 md:w-96 md:h-96 bg-brand-purple rounded-full mix-blend-screen filter blur-[90px] md:blur-[128px] opacity-30 animate-blob pointer-events-none"></div>
+        <div class="absolute top-0 -right-4 w-64 h-64 md:w-96 md:h-96 bg-brand-fuchsia rounded-full mix-blend-screen filter blur-[90px] md:blur-[128px] opacity-30 animate-blob animation-delay-2000 pointer-events-none"></div>
+        <div class="absolute -bottom-8 left-20 w-64 h-64 md:w-96 md:h-96 bg-brand-purple rounded-full mix-blend-screen filter blur-[90px] md:blur-[128px] opacity-20 animate-blob animation-delay-4000 pointer-events-none"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in-section is-visible z-10">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-1.5 rounded-full bg-white/5 border border-white/10 text-xs md:text-sm text-brand-fuchsia mb-6 md:mb-8 backdrop-blur-md">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-purple opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-fuchsia"></span>
+                </span>
+                <span class="font-medium tracking-wide">Live Cohort Starts April 15th</span>
+            </div>
+            
+            <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight mb-4 md:mb-6 leading-[1.15] md:leading-[1.1]">
+                Raise Capital With <br/>
+                <span class="text-brand-gradient relative inline-block">
+                    Clarity.
+                    <svg class="absolute w-full h-2 md:h-3 -bottom-1 md:-bottom-2 left-0 text-brand-purple opacity-70" viewBox="0 0 100 10" preserveAspectRatio="none">
+                        <path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="2" fill="none" />
+                    </svg>
+                </span> Not Luck.
+            </h1>
+            
+            <p class="mt-6 md:mt-8 max-w-2xl mx-auto text-lg sm:text-xl md:text-2xl text-slate-400 mb-8 md:mb-12 leading-relaxed font-light px-2">
+                Stop guessing what investors want. Join the live, cohort-based program that transforms passionate builders into <span class="text-white font-medium">investable founders.</span>
+            </p>
+            
+            <div class="flex flex-col items-center justify-center gap-4 md:gap-6 w-full max-w-md mx-auto sm:max-w-none">
+                <!-- Glowing Primary Button -->
+                <div class="relative group w-full sm:w-auto">
+                    <div class="absolute -inset-1 brand-gradient rounded-xl blur-lg opacity-60 group-hover:opacity-100 transition duration-300"></div>
+                    <a href="#pricing" class="relative w-full sm:w-auto px-6 py-4 md:px-8 md:py-5 text-base md:text-lg font-bold rounded-xl text-white brand-gradient flex items-center justify-center transform group-hover:-translate-y-1 transition-all duration-300">
+                        Secure Your Seat in the Cohort
+                        <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+                <div class="flex items-center gap-2 text-xs md:text-sm text-slate-500 font-medium">
+                    <i class="fa-solid fa-shield-halved text-brand-purple"></i> Secure Checkout via Razorpay
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- The Outcome Section -->
+    <section class="py-16 md:py-24 relative z-10" id="outcome">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 fade-in-section">
+            <div class="text-center mb-12 md:mb-20">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 md:mb-6">A Tale of Two Founders</h2>
+                <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto font-light">In the startup ecosystem, there are two types of founders. Which outcome do you want?</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 lg:gap-12 relative">
+                <!-- Connector Line (Desktop) -->
+                <div class="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-px bg-gradient-to-r from-slate-700 via-brand-purple to-brand-fuchsia z-0"></div>
+
+                <!-- Founder 1 -->
+                <div class="glass-card rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 relative overflow-hidden z-10 border-t-0 border-l-0 border-r-0 border-b-4 border-b-slate-700 hover:border-b-slate-500 transition-colors">
+                    <div class="absolute top-0 right-0 p-4 md:p-6 opacity-5 text-slate-500">
+                        <i class="fa-solid fa-xmark text-6xl md:text-8xl"></i>
+                    </div>
+                    <div class="w-12 h-12 md:w-14 md:h-14 bg-slate-800 rounded-2xl flex items-center justify-center mb-6 md:mb-8 border border-white/5">
+                        <i class="fa-solid fa-user-astronaut text-slate-400 text-xl md:text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-2 md:mb-3 text-white">Founder 1: Passionate but Unprepared</h3>
+                    <p class="text-sm md:text-base text-slate-400 mb-6 md:mb-8 font-light">Builds relentlessly but feels completely lost when it's time to raise capital.</p>
+                    
+                    <ul class="space-y-4 md:space-y-5">
+                        <li class="flex items-start gap-3 md:gap-4">
+                            <div class="mt-1 w-5 h-5 md:w-6 md:h-6 rounded-full bg-slate-800 flex items-center justify-center shrink-0 border border-white/5">
+                                <i class="fa-solid fa-xmark text-slate-500 text-[10px] md:text-xs"></i>
+                            </div>
+                            <span class="text-sm md:text-base text-slate-300 font-light leading-relaxed">Walks into investor meetings armed with a vision, but no structured narrative.</span>
+                        </li>
+                        <li class="flex items-start gap-3 md:gap-4">
+                            <div class="mt-1 w-5 h-5 md:w-6 md:h-6 rounded-full bg-slate-800 flex items-center justify-center shrink-0 border border-white/5">
+                                <i class="fa-solid fa-xmark text-slate-500 text-[10px] md:text-xs"></i>
+                            </div>
+                            <span class="text-sm md:text-base text-slate-300 font-light leading-relaxed">Stumbles over basic unit economics and dreads the "Data Room" request.</span>
+                        </li>
+                        <li class="flex items-start gap-3 md:gap-4">
+                            <div class="mt-1 w-5 h-5 md:w-6 md:h-6 rounded-full bg-slate-800 flex items-center justify-center shrink-0 border border-white/5">
+                                <i class="fa-solid fa-xmark text-slate-500 text-[10px] md:text-xs"></i>
+                            </div>
+                            <span class="text-sm md:text-base text-slate-300 font-light leading-relaxed">Often faces rejection or signs restrictive deals because they don't know the rules of the game.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Founder 2 (The Beautiful One) -->
+                <div class="glass-card rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 relative overflow-hidden z-10 border-brand-gradient shadow-[0_10px_30px_-10px_rgba(139,92,246,0.3)] md:shadow-[0_20px_50px_-15px_rgba(139,92,246,0.3)]">
+                    <div class="absolute top-0 right-0 p-4 md:p-6 opacity-10">
+                        <i class="fa-solid fa-check text-6xl md:text-8xl icon-gradient"></i>
+                    </div>
+                    <!-- Ambient Inner Glow -->
+                    <div class="absolute -top-16 -right-16 md:-top-24 md:-right-24 w-32 h-32 md:w-48 md:h-48 bg-brand-fuchsia rounded-full mix-blend-screen filter blur-[60px] md:blur-[80px] opacity-40"></div>
+                    
+                    <div class="w-12 h-12 md:w-14 md:h-14 brand-gradient rounded-2xl flex items-center justify-center mb-6 md:mb-8 shadow-lg shadow-brand-purple/50">
+                        <i class="fa-solid fa-user-tie text-white text-xl md:text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-2 md:mb-3 text-white">Founder 2: The Prepared Architect</h3>
+                    <p class="text-sm md:text-base text-brand-fuchsia mb-6 md:mb-8 font-medium">Builds an investable company structure, not just a great product.</p>
+                    
+                    <ul class="space-y-4 md:space-y-5">
+                        <li class="flex items-start gap-3 md:gap-4">
+                            <div class="mt-1 w-5 h-5 md:w-6 md:h-6 rounded-full bg-brand-purple/20 flex items-center justify-center shrink-0 border border-brand-purple/30">
+                                <i class="fa-solid fa-check text-brand-fuchsia text-[10px] md:text-xs"></i>
+                            </div>
+                            <span class="text-sm md:text-base text-slate-200 font-light leading-relaxed">Understands Term Sheets and uses financial models to prove growth.</span>
+                        </li>
+                        <li class="flex items-start gap-3 md:gap-4">
+                            <div class="mt-1 w-5 h-5 md:w-6 md:h-6 rounded-full bg-brand-purple/20 flex items-center justify-center shrink-0 border border-brand-purple/30">
+                                <i class="fa-solid fa-check text-brand-fuchsia text-[10px] md:text-xs"></i>
+                            </div>
+                            <span class="text-sm md:text-base text-slate-200 font-light leading-relaxed">Walks into the room knowing <strong class="text-white">90% of what investors will ask</strong> before they open their mouths.</span>
+                        </li>
+                        <li class="flex items-start gap-3 md:gap-4">
+                            <div class="mt-1 w-5 h-5 md:w-6 md:h-6 rounded-full bg-brand-purple/20 flex items-center justify-center shrink-0 border border-brand-purple/30">
+                                <i class="fa-solid fa-check text-brand-fuchsia text-[10px] md:text-xs"></i>
+                            </div>
+                            <span class="text-sm md:text-base text-slate-200 font-light leading-relaxed">Doesn't just ask for money—they negotiate a strategic partnership from a place of leverage.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-12 md:mt-20 relative group max-w-4xl mx-auto">
+                <div class="absolute -inset-1 brand-gradient rounded-2xl blur-lg opacity-20 group-hover:opacity-40 transition duration-500"></div>
+                <div class="relative text-center glass-card rounded-2xl p-6 md:p-8 lg:p-12 border-white/10">
+                    <h4 class="text-brand-fuchsia font-bold tracking-widest uppercase mb-2 md:mb-4 text-xs md:text-sm">The Transformation</h4>
+                    <p class="text-xl md:text-2xl lg:text-3xl font-medium leading-tight">
+                        You will stop treating fundraising like a lottery and master it as a <span class="text-transparent bg-clip-text brand-gradient font-extrabold">repeatable system.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section class="py-16 md:py-24 relative overflow-hidden" id="why-us">
+        <!-- Huge abstract backdrop -->
+        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-full max-w-2xl h-[400px] md:h-[600px] brand-gradient rounded-full mix-blend-screen filter blur-[100px] md:blur-[150px] opacity-10 pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative fade-in-section">
+            <div class="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
+                <div class="order-2 lg:order-1 relative">
+                    <div class="relative rounded-2xl md:rounded-3xl p-1 md:p-2 brand-gradient bg-opacity-10 backdrop-blur-sm animate-float">
+                        <div class="aspect-[4/3] bg-brand-bg rounded-xl md:rounded-2xl overflow-hidden relative border border-white/10">
+                            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Founders collaborating" class="absolute inset-0 w-full h-full object-cover opacity-50 mix-blend-luminosity hover:mix-blend-normal transition-all duration-700 hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-tr from-brand-bg via-transparent to-transparent"></div>
+                            
+                            <!-- Floating Glass Element inside Image -->
+                            <div class="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 p-3 md:p-4 glass-card rounded-xl border border-white/10 backdrop-blur-md flex items-center gap-3 md:gap-4">
+                                <div class="w-10 h-10 md:w-12 md:h-12 rounded-full brand-gradient flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-file-invoice-dollar text-white text-lg md:text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="text-white font-bold text-xs md:text-sm">Data_Room_Final.zip</p>
+                                    <p class="text-slate-400 text-[10px] md:text-xs">Generated during session</p>
+                                </div>
+                                <div class="ml-auto">
+                                    <i class="fa-solid fa-check-circle text-brand-fuchsia text-sm md:text-base"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="order-1 lg:order-2 text-center md:text-left">
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 md:mb-6 leading-tight">
+                        Why Us? <br/>
+                        <span class="text-brand-gradient text-2xl md:text-3xl lg:text-4xl">(The Execution Room)</span>
+                    </h2>
+                    <p class="text-base md:text-lg text-slate-400 mb-4 md:mb-6 leading-relaxed font-light text-left">
+                        Why not just watch free YouTube videos about fundraising? Because YouTube teaches you the <em>theory</em> of fundraising. <strong class="text-white">Theory does not survive contact with a real investor.</strong>
+                    </p>
+                    <p class="text-base md:text-lg text-slate-400 leading-relaxed mb-8 md:mb-10 font-light text-left">
+                        This program is an <strong>Execution Room</strong>. You don't just sit and listen. You actively break down real pitch decks, model actual financials, and build your data room live. Every session ends with a deliverable you keep: a template, a checklist, a model. Not notes. Assets.
+                    </p>
+                    
+                    <div class="relative group inline-flex w-full sm:w-auto">
+                        <div class="absolute -inset-0.5 brand-gradient rounded-xl blur opacity-40 group-hover:opacity-100 transition duration-300"></div>
+                        <div class="relative flex items-center justify-center md:justify-start gap-3 md:gap-4 px-6 py-4 md:px-8 md:py-4 bg-brand-bg rounded-xl border border-white/10 w-full sm:w-auto">
+                            <i class="fa-solid fa-bolt icon-gradient text-lg md:text-xl"></i>
+                            <span class="font-bold text-lg md:text-xl text-white">Execution beats theory.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum Tracks -->
+    <section class="py-16 md:py-24 relative" id="curriculum">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 fade-in-section">
+            <div class="text-center mb-12 md:mb-20">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-2 md:mb-4">Audience & Curriculum</h2>
+                <p class="text-lg md:text-xl text-brand-gradient font-medium">Choose Your Track</p>
+                <p class="text-base md:text-lg text-slate-400 max-w-2xl mx-auto mt-2 md:mt-4 font-light">Structured precisely for where you are in your startup journey.</p>
+            </div>
+
+            <div class="space-y-8 md:space-y-10">
+                <!-- Track 1 -->
+                <div class="glass-card rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-12 border border-white/5 hover:border-white/20 transition-all duration-500 group">
+                    <div class="md:flex gap-8 lg:gap-12 items-start">
+                        <div class="md:w-1/3 mb-8 md:mb-0">
+                            <div class="inline-block px-3 py-1 md:px-4 md:py-1.5 bg-slate-800 text-slate-300 font-bold rounded-lg text-xs md:text-sm mb-4 md:mb-6 border border-white/10 shadow-inner">
+                                TRACK 1
+                            </div>
+                            <h3 class="text-2xl md:text-3xl font-bold mb-1 md:mb-2 text-white group-hover:text-brand-purple transition-colors">Foundation Cohort</h3>
+                            <p class="text-sm md:text-base text-brand-purple mb-6 font-medium">Fund Raising Basics</p>
+                            
+                            <div class="mb-6 md:mb-8">
+                                <h4 class="text-white text-sm md:text-base font-semibold mb-2 md:mb-3 flex items-center gap-2"><i class="fa-solid fa-crosshairs text-brand-purple opacity-70"></i> Who is this for?</h4>
+                                <p class="text-sm text-slate-400 leading-relaxed font-light">Early-stage entrepreneurs and beginner founders who need to understand how funding actually works before making costly mistakes.</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 rounded-xl p-4 md:p-5 border border-white/5 relative overflow-hidden">
+                                <div class="absolute left-0 top-0 bottom-0 w-1 bg-brand-purple"></div>
+                                <span class="block text-[10px] md:text-xs uppercase tracking-widest text-brand-purple mb-1 md:mb-2 font-bold">The Goal</span>
+                                <p class="text-xs md:text-sm font-medium text-white">Walk away with a clear roadmap of the fundraising landscape.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="md:w-2/3">
+                            <h4 class="text-lg md:text-xl font-bold mb-4 md:mb-6 pb-3 md:pb-4 border-b border-white/10 text-white">What you will master:</h4>
+                            <div class="grid sm:grid-cols-2 gap-x-6 gap-y-5 md:gap-x-8 md:gap-y-6">
+                                <div class="flex items-start gap-3 md:gap-4">
+                                    <div class="mt-1 w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center shrink-0 border border-white/5">
+                                        <i class="fa-solid fa-book text-brand-purple text-xs md:text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-white font-bold mb-1 text-sm md:text-base">The Language</h5>
+                                        <p class="text-xs md:text-sm text-slate-400 font-light leading-relaxed">Decode all basic financial jargon and key terms every founder must know.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3 md:gap-4">
+                                    <div class="mt-1 w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center shrink-0 border border-white/5">
+                                        <i class="fa-solid fa-rotate text-brand-purple text-xs md:text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-white font-bold mb-1 text-sm md:text-base">The Process</h5>
+                                        <p class="text-xs md:text-sm text-slate-400 font-light leading-relaxed">A complete introduction to the fundraising lifecycle and Investor Outreach.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3 md:gap-4">
+                                    <div class="mt-1 w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center shrink-0 border border-white/5">
+                                        <i class="fa-solid fa-presentation-screen text-brand-purple text-xs md:text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-white font-bold mb-1 text-sm md:text-base">The Pitch</h5>
+                                        <p class="text-xs md:text-sm text-slate-400 font-light leading-relaxed">The structural anatomy of a winning Pitch Deck and how to deliver it.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3 md:gap-4">
+                                    <div class="mt-1 w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center shrink-0 border border-white/5">
+                                        <i class="fa-solid fa-scale-balanced text-brand-purple text-xs md:text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-white font-bold mb-1 text-sm md:text-base">The Legal Basics</h5>
+                                        <p class="text-xs md:text-sm text-slate-400 font-light leading-relaxed">An introduction to the essential agreements required to raise capital.</p>
+                                    </div>
+                                </div>
+                                <div class="sm:col-span-2 flex items-start gap-3 md:gap-4 bg-brand-purple/5 p-4 md:p-5 rounded-xl border border-brand-purple/10 mt-2">
+                                    <div class="mt-1 w-8 h-8 rounded-lg bg-brand-purple/20 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-box-open text-brand-purple text-xs md:text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-white font-bold mb-1 text-sm md:text-base">The Assets</h5>
+                                        <p class="text-xs md:text-sm text-slate-300 font-light leading-relaxed">Walk away with access to tools, templates, and a Data Room preparation checklist.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-[10px] md:text-xs text-slate-500 mt-4 md:mt-6 font-light">Note: This foundational track focuses on clarity and preparation; it does not cover advanced legal clause breakdowns or complex Cap Table math.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Track 2 -->
+                <div class="glass-card rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-12 border-brand-gradient relative overflow-hidden shadow-[0_0_30px_rgba(217,70,239,0.1)] md:shadow-[0_0_40px_rgba(217,70,239,0.15)]">
+                    <div class="absolute top-0 right-0 brand-gradient text-white text-[10px] md:text-xs font-bold px-4 py-1.5 md:px-6 md:py-2 rounded-bl-xl md:rounded-bl-2xl uppercase tracking-widest shadow-lg">
+                        Most Advanced
+                    </div>
+                    
+                    <div class="md:flex gap-8 lg:gap-12 items-start mt-2 md:mt-0">
+                        <div class="md:w-1/3 mb-8 md:mb-0">
+                            <div class="inline-block px-3 py-1 md:px-4 md:py-1.5 brand-gradient text-white font-bold rounded-lg text-xs md:text-sm mb-4 md:mb-6 shadow-lg shadow-brand-fuchsia/30">
+                                TRACK 2
+                            </div>
+                            <h3 class="text-2xl md:text-3xl font-bold mb-1 md:mb-2 text-white">Advanced Cohort</h3>
+                            <p class="text-sm md:text-base text-brand-fuchsia mb-6 font-medium">Investor-Ready Bootcamp</p>
+                            
+                            <div class="mb-6 md:mb-8">
+                                <h4 class="text-white text-sm md:text-base font-semibold mb-2 md:mb-3 flex items-center gap-2"><i class="fa-solid fa-crosshairs icon-gradient"></i> Who is this for?</h4>
+                                <p class="text-sm text-slate-300 leading-relaxed font-light">Founders actively preparing to raise funds right now who need their numbers and legal knowledge to survive brutal investor scrutiny.</p>
+                            </div>
+                            
+                            <div class="bg-gradient-to-br from-brand-purple/10 to-brand-fuchsia/10 rounded-xl p-4 md:p-5 border border-brand-fuchsia/20 relative overflow-hidden mb-5 md:mb-6">
+                                <div class="absolute left-0 top-0 bottom-0 w-1 brand-gradient"></div>
+                                <span class="block text-[10px] md:text-xs uppercase tracking-widest text-brand-fuchsia mb-1 md:mb-2 font-bold">The Goal</span>
+                                <p class="text-xs md:text-sm font-medium text-white">Become a fully investor-ready founder with a refined deck, clean financials, and a live outreach system.</p>
+                            </div>
+                            
+                            <p class="text-[10px] md:text-xs font-bold text-white bg-white/10 border border-white/10 inline-flex items-center gap-2 px-3 py-1.5 md:py-2 rounded-lg backdrop-blur-md">
+                                <i class="fa-solid fa-plus text-brand-fuchsia"></i> Includes full access to Track 1
+                            </p>
+                        </div>
+                        
+                        <div class="md:w-2/3">
+                            <h4 class="text-lg md:text-xl font-bold mb-4 md:mb-6 pb-3 md:pb-4 border-b border-white/10 text-transparent bg-clip-text brand-gradient">What you will master in the deep dive:</h4>
+                            <div class="grid sm:grid-cols-2 gap-x-6 gap-y-6 md:gap-x-8 md:gap-y-8">
+                                <div class="flex items-start gap-3 md:gap-4">
+                                    <div class="mt-1 w-8 h-8 rounded-lg bg-brand-fuchsia/10 flex items-center justify-center shrink-0 border border-brand-fuchsia/20">
+                                        <i class="fa-solid fa-file-contract text-brand-fuchsia text-xs md:text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-white font-bold mb-1 text-sm md:text-base">Term Sheet Mastery</h5>
+                                        <p class="text-xs md:text-sm text-slate-400 font-light leading-relaxed">Covering all key terms, plus a deep dive into negotiation areas and potential conflicts.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3 md:gap-4">
+                                    <div class="mt-1 w-8 h-8 rounded-lg bg-brand-fuchsia/10 flex items-center justify-center shrink-0 border border-brand-fuchsia/20">
+                                        <i class="fa-solid fa-chess-knight text-brand-fuchsia text-xs md:text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-white font-bold mb-1 text-sm md:text-base">Strategic Leverage</h5>
+                                        <p class="text-xs md:text-sm text-slate-400 font-light leading-relaxed">How to structure your current deal to protect your future funding rounds, backed by real case studies.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3 md:gap-4">
+                                    <div class="mt-1 w-8 h-8 rounded-lg bg-brand-fuchsia/10 flex items-center justify-center shrink-0 border border-brand-fuchsia/20">
+                                        <i class="fa-solid fa-shield-halved text-brand-fuchsia text-xs md:text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-white font-bold mb-1 text-sm md:text-base">Legal Shielding</h5>
+                                        <p class="text-xs md:text-sm text-slate-400 font-light leading-relaxed">Detailed breakdown of critical agreements: SHA, ESOP, NDA, and IP.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3 md:gap-4">
+                                    <div class="mt-1 w-8 h-8 rounded-lg bg-brand-fuchsia/10 flex items-center justify-center shrink-0 border border-brand-fuchsia/20">
+                                        <i class="fa-solid fa-chart-pie text-brand-fuchsia text-xs md:text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-white font-bold mb-1 text-sm md:text-base">The Math of Equity</h5>
+                                        <p class="text-xs md:text-sm text-slate-400 font-light leading-relaxed">An absolute deep dive into Cap Table management and calculations so you know exactly what you are giving away.</p>
+                                    </div>
+                                </div>
+                                <div class="sm:col-span-2 flex items-start gap-3 md:gap-4 bg-gradient-to-r from-brand-purple/10 to-transparent p-4 md:p-6 rounded-xl md:rounded-2xl border border-brand-purple/20 mt-2">
+                                    <div class="mt-1 w-10 h-10 rounded-xl brand-gradient flex items-center justify-center shrink-0 shadow-lg shadow-brand-purple/30">
+                                        <i class="fa-solid fa-rocket text-white text-sm md:text-base"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-white text-base md:text-lg font-bold mb-1">The Outreach Engine</h5>
+                                        <p class="text-xs md:text-sm text-slate-300 font-light leading-relaxed">Implement the Investor Outreach Roadmap—how to identify, connect, and close funding with the right investor.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mentors Section -->
+    <section class="py-16 md:py-24 relative overflow-hidden" id="mentors">
+        <!-- Ambient background line -->
+        <div class="absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-purple to-transparent opacity-30"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative fade-in-section">
+            <div class="text-center mb-12 md:mb-20">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 md:mb-6">The Mentors</h2>
+                <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto font-light leading-relaxed">To master fundraising, you must speak three languages: The Narrative, The Numbers, and The Law. You will be guided by three specialized experts.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 md:gap-8">
+                <!-- Mentor 1 -->
+                <div class="glass-card rounded-2xl md:rounded-3xl overflow-hidden flex flex-col group border border-white/5 hover:border-brand-purple/50 transition-all duration-300 hover:-translate-y-2">
+                    <div class="h-48 md:h-56 bg-brand-bg relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-bg to-transparent z-10"></div>
+                        <div class="w-full h-full opacity-20 bg-[radial-gradient(#8b5cf6_1px,transparent_1px)] [background-size:20px_20px] group-hover:scale-110 transition-transform duration-700"></div>
+                        <div class="absolute bottom-4 left-5 md:bottom-5 md:left-6 z-20">
+                            <span class="text-[10px] md:text-xs font-extrabold tracking-widest uppercase text-brand-purple drop-shadow-md">The Narrative Strategist</span>
+                        </div>
+                    </div>
+                    <div class="p-6 md:p-8 flex-1 flex flex-col">
+                        <h3 class="text-xl md:text-2xl font-bold mb-2 text-white">[Insert Name]</h3>
+                        
+                        <div class="mt-3 md:mt-4 space-y-3 md:space-y-4 flex-1">
+                            <div>
+                                <h4 class="text-[10px] md:text-xs font-bold uppercase text-slate-500 mb-1 md:mb-1.5 tracking-wider">Background</h4>
+                                <p class="text-xs md:text-sm text-slate-400 font-light leading-relaxed">[Insert 1-2 powerful bullet points, e.g., "Reviewed 500+ pitch decks," or "Helped founders secure $X in seed funding."]</p>
+                            </div>
+                            <div>
+                                <h4 class="text-[10px] md:text-xs font-bold uppercase text-slate-500 mb-1 md:mb-1.5 tracking-wider">Focus</h4>
+                                <p class="text-xs md:text-sm font-semibold text-slate-200">Pitch Deck structure and Investor Psychology.</p>
+                            </div>
+                        </div>
+                        
+                        <button class="mt-6 md:mt-8 w-full py-2.5 md:py-3 px-4 bg-white/5 hover:bg-brand-purple border border-white/10 hover:border-brand-purple rounded-xl text-xs md:text-sm font-bold transition-all flex items-center justify-center gap-2 group/btn">
+                            <i class="fa-solid fa-play text-brand-purple group-hover/btn:text-white transition-colors"></i> Watch 60s Intro
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mentor 2 -->
+                <div class="glass-card rounded-2xl md:rounded-3xl overflow-hidden flex flex-col group border border-white/5 hover:border-brand-fuchsia/50 transition-all duration-300 hover:-translate-y-2 relative">
+                    <!-- Glow effect behind the center card -->
+                    <div class="absolute inset-0 brand-gradient opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                    
+                    <div class="h-48 md:h-56 bg-brand-bg relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-bg to-transparent z-10"></div>
+                        <div class="w-full h-full opacity-20 bg-[radial-gradient(#d946ef_1px,transparent_1px)] [background-size:20px_20px] group-hover:scale-110 transition-transform duration-700"></div>
+                        <div class="absolute bottom-4 left-5 md:bottom-5 md:left-6 z-20">
+                            <span class="text-[10px] md:text-xs font-extrabold tracking-widest uppercase text-brand-fuchsia drop-shadow-md">The Financial Architect</span>
+                        </div>
+                    </div>
+                    <div class="p-6 md:p-8 flex-1 flex flex-col relative z-10">
+                        <h3 class="text-xl md:text-2xl font-bold mb-2 text-white">[Insert Name]</h3>
+                        
+                        <div class="mt-3 md:mt-4 space-y-3 md:space-y-4 flex-1">
+                            <div>
+                                <h4 class="text-[10px] md:text-xs font-bold uppercase text-slate-500 mb-1 md:mb-1.5 tracking-wider">Background</h4>
+                                <p class="text-xs md:text-sm text-slate-400 font-light leading-relaxed">[Insert 1-2 powerful bullet points, e.g., "Financial Modeler," or "Managed $X in VC funds."]</p>
+                            </div>
+                            <div>
+                                <h4 class="text-[10px] md:text-xs font-bold uppercase text-slate-500 mb-1 md:mb-1.5 tracking-wider">Focus</h4>
+                                <p class="text-xs md:text-sm font-semibold text-slate-200">Startup metrics, unit economics, and financial jargon.</p>
+                            </div>
+                        </div>
+                        
+                        <button class="mt-6 md:mt-8 w-full py-2.5 md:py-3 px-4 bg-white/5 hover:bg-brand-fuchsia border border-white/10 hover:border-brand-fuchsia rounded-xl text-xs md:text-sm font-bold transition-all flex items-center justify-center gap-2 group/btn">
+                            <i class="fa-solid fa-play text-brand-fuchsia group-hover/btn:text-white transition-colors"></i> Watch 60s Intro
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mentor 3 -->
+                <div class="glass-card rounded-2xl md:rounded-3xl overflow-hidden flex flex-col group border border-white/5 hover:border-brand-purple/50 transition-all duration-300 hover:-translate-y-2">
+                    <div class="h-48 md:h-56 bg-brand-bg relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-bg to-transparent z-10"></div>
+                        <div class="w-full h-full opacity-20 bg-[radial-gradient(#8b5cf6_1px,transparent_1px)] [background-size:20px_20px] group-hover:scale-110 transition-transform duration-700"></div>
+                        <div class="absolute bottom-4 left-5 md:bottom-5 md:left-6 z-20">
+                            <span class="text-[10px] md:text-xs font-extrabold tracking-widest uppercase text-brand-purple drop-shadow-md">The Deal Structurer</span>
+                        </div>
+                    </div>
+                    <div class="p-6 md:p-8 flex-1 flex flex-col">
+                        <h3 class="text-xl md:text-2xl font-bold mb-2 text-white">[Insert Name]</h3>
+                        
+                        <div class="mt-3 md:mt-4 space-y-3 md:space-y-4 flex-1">
+                            <div>
+                                <h4 class="text-[10px] md:text-xs font-bold uppercase text-slate-500 mb-1 md:mb-1.5 tracking-wider">Background</h4>
+                                <p class="text-xs md:text-sm text-slate-400 font-light leading-relaxed">[Insert 1-2 powerful bullet points, e.g., "Corporate Startup Lawyer," or "Negotiated 50+ Term Sheets."]</p>
+                            </div>
+                            <div>
+                                <h4 class="text-[10px] md:text-xs font-bold uppercase text-slate-500 mb-1 md:mb-1.5 tracking-wider">Focus</h4>
+                                <p class="text-xs md:text-sm font-semibold text-slate-200">Term Sheets, Cap Tables, and protecting your equity.</p>
+                            </div>
+                        </div>
+                        
+                        <button class="mt-6 md:mt-8 w-full py-2.5 md:py-3 px-4 bg-white/5 hover:bg-brand-purple border border-white/10 hover:border-brand-purple rounded-xl text-xs md:text-sm font-bold transition-all flex items-center justify-center gap-2 group/btn">
+                            <i class="fa-solid fa-play text-brand-purple group-hover/btn:text-white transition-colors"></i> Watch 60s Intro
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-16 md:py-32 relative" id="pricing">
+        <!-- Intense glow behind pricing -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-[300px] md:h-[500px] brand-gradient rounded-full mix-blend-screen filter blur-[150px] md:blur-[200px] opacity-10 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 fade-in-section relative z-10">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 md:mb-8">Schedule & Pricing</h2>
+                
+                <div class="max-w-3xl mx-auto glass-card p-6 md:p-8 lg:p-10 rounded-2xl md:rounded-3xl border border-white/10 text-left relative overflow-hidden">
+                    <!-- Subtle top gradient border effect -->
+                    <div class="absolute top-0 left-0 w-full h-1 brand-gradient"></div>
+                    
+                    <p class="text-base md:text-lg text-slate-300 leading-relaxed mb-4 md:mb-6 font-light">
+                        Let's be completely honest about the math of startups. Founders lose massive valuation—and sometimes control of their company—because they misunderstood a single line in a Term Sheet or couldn't explain their Cap Table.
+                    </p>
+                    <p class="text-lg md:text-xl font-bold text-transparent bg-clip-text brand-gradient">
+                        A ridiculously small investment in preparation today gives you the leverage to protect your equity tomorrow.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 lg:gap-12 max-w-5xl mx-auto">
+                <!-- Foundation Pricing -->
+                <div class="glass-card rounded-2xl md:rounded-3xl p-6 md:p-8 border border-white/10 flex flex-col hover:border-white/20 transition-all duration-300">
+                    <div class="mb-5 md:mb-6 border-b border-white/10 pb-5 md:pb-6">
+                        <h3 class="text-2xl md:text-3xl font-bold text-white mb-2">Foundation Cohort</h3>
+                        <p class="text-sm md:text-base text-slate-400 font-medium">The basics of capital and readiness.</p>
+                    </div>
+                    
+                    <div class="mb-5 md:mb-6 flex items-baseline text-4xl sm:text-5xl md:text-6xl font-extrabold text-white">
+                        <span>₹499</span>
+                    </div>
+                    
+                    <ul class="mb-8 space-y-4 md:space-y-5 flex-1">
+                        <li class="flex items-center gap-3 md:gap-4">
+                            <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-slate-800 flex items-center justify-center border border-white/5 shrink-0">
+                                <i class="fa-regular fa-calendar text-brand-purple text-sm md:text-base"></i>
+                            </div>
+                            <span class="text-sm sm:text-base md:text-lg text-slate-300"><strong class="text-white">Dates:</strong> 15, 16, 17 April</span>
+                        </li>
+                        <li class="flex items-center gap-3 md:gap-4">
+                            <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-slate-800 flex items-center justify-center border border-white/5 shrink-0">
+                                <i class="fa-regular fa-clock text-brand-purple text-sm md:text-base"></i>
+                            </div>
+                            <span class="text-sm sm:text-base md:text-lg text-slate-300"><strong class="text-white">Duration:</strong> 9 hours (Live on Zoom)</span>
+                        </li>
+                        <li class="flex items-start gap-3 md:gap-4 mt-5 md:mt-6 bg-white/5 p-3 md:p-4 rounded-xl md:rounded-2xl border border-white/5">
+                            <i class="fa-solid fa-circle-info text-brand-purple mt-1 text-base md:text-lg shrink-0"></i>
+                            <span class="text-xs md:text-sm text-slate-400 font-light leading-relaxed">Less than the cost of a weekend dinner to learn the exact financial language required to build an investable company.</span>
+                        </li>
+                    </ul>
+                    
+                    <a href="https://rzp.io/rzp/bUPzmgpV" target="_blank" class="w-full block text-center px-4 py-4 md:px-6 md:py-4 rounded-xl bg-slate-800 hover:bg-slate-700 border border-white/10 text-white font-bold transition-colors text-base md:text-lg">
+                        Enroll in Foundation – ₹499
+                    </a>
+                </div>
+
+                <!-- Advanced Pricing -->
+                <div class="glass-card rounded-2xl md:rounded-3xl p-6 md:p-8 border border-white/10 flex flex-col hover:border-white/20 transition-all duration-300 mt-4 md:mt-0">
+                    <div class="mb-5 md:mb-6 border-b border-white/10 pb-5 md:pb-6">
+                        <h3 class="text-2xl md:text-3xl font-bold text-white mb-2">Advanced Cohort</h3>
+                        <p class="text-sm md:text-base text-brand-fuchsia font-medium">Full deep dive and investor readiness.</p>
+                    </div>
+                    
+                    <div class="mb-5 md:mb-6 flex items-baseline text-4xl sm:text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text brand-gradient">
+                        <span>₹1499</span>
+                    </div>
+                    
+                    <ul class="mb-8 space-y-4 md:space-y-5 flex-1">
+                        <li class="flex items-center gap-3 md:gap-4">
+                            <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-brand-fuchsia/10 flex items-center justify-center border border-brand-fuchsia/20 shrink-0">
+                                <i class="fa-regular fa-calendar text-brand-fuchsia text-sm md:text-base"></i>
+                            </div>
+                            <span class="text-sm sm:text-base md:text-lg text-slate-300"><strong class="text-white">Dates:</strong> 18, 19 April <br/><span class="text-xs md:text-sm text-brand-purple font-semibold mt-0.5 md:mt-1 block">(Plus full access to April 15-17)</span></span>
+                        </li>
+                        <li class="flex items-center gap-3 md:gap-4">
+                            <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-brand-fuchsia/10 flex items-center justify-center border border-brand-fuchsia/20 shrink-0">
+                                <i class="fa-regular fa-clock text-brand-fuchsia text-sm md:text-base"></i>
+                            </div>
+                            <span class="text-sm sm:text-base md:text-lg text-slate-300"><strong class="text-white">Duration:</strong> 25 hours total (Live on Zoom)</span>
+                        </li>
+                        <li class="flex items-start gap-3 md:gap-4 mt-5 md:mt-6 bg-brand-gradient bg-opacity-10 p-3 md:p-4 rounded-xl md:rounded-2xl border border-brand-fuchsia/20 backdrop-blur-sm">
+                            <i class="fa-solid fa-circle-info text-white mt-1 text-base md:text-lg shrink-0"></i>
+                            <span class="text-xs md:text-sm text-white font-medium leading-relaxed">A startup lawyer charges thousands for a single hour of consultation. For ₹1499, you get 25 hours of tactical knowledge that protects your leverage.</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="relative group w-full">
+                        <div class="absolute -inset-1 brand-gradient rounded-xl blur opacity-60 group-hover:opacity-100 transition duration-300"></div>
+                        <a href="https://rzp.io/rzp/qwYJvOq" target="_blank" class="relative w-full block text-center px-4 py-4 md:px-6 md:py-4 rounded-xl brand-gradient text-white font-bold transition-all transform group-hover:-translate-y-1 text-base md:text-lg">
+                            Enroll in Advanced – ₹1499
+                        </a>
+                    </div>
+                    <div class="text-center mt-4 text-xs md:text-sm text-slate-400 flex items-center justify-center gap-1.5 md:gap-2 font-medium">
+                        <i class="fa-solid fa-shield-halved text-brand-purple"></i> Secure payments via Razorpay
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-20 md:py-32 relative border-t border-white/5 overflow-hidden">
+        <!-- Background elements -->
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-brand-purple/10 pointer-events-none"></div>
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[400px] md:w-[800px] h-[150px] md:h-[300px] brand-gradient rounded-[100%] filter blur-[60px] md:blur-[100px] opacity-20 pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in-section relative z-10">
+            <h2 class="text-4xl md:text-5xl lg:text-7xl font-extrabold mb-6 md:mb-8 tracking-tight">The Final Decision</h2>
+            
+            <p class="text-lg md:text-2xl text-slate-300 mb-8 md:mb-10 leading-relaxed font-light">
+                The live cohorts begin on <strong class="text-transparent bg-clip-text brand-gradient font-extrabold">April 15th</strong>. High-quality live interaction requires small groups.
+            </p>
+            
+            <div class="relative p-[1px] rounded-2xl md:rounded-3xl brand-gradient mb-10 md:mb-12 max-w-3xl mx-auto shadow-xl md:shadow-2xl shadow-brand-purple/20 mx-2 sm:mx-0">
+                <div class="bg-brand-bg rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-12">
+                    <p class="text-base sm:text-lg md:text-2xl text-slate-300 leading-relaxed italic font-light">
+                        "Every day you delay understanding capital, you leave your startup vulnerable. Six months from now, will you still be hoping an investor takes pity on your vision? Or will you walk into the room with a pristine data room, a clean cap table, and the quiet confidence of a founder who knows exactly how the game is played?"
+                    </p>
+                </div>
+            </div>
+            
+            <h3 class="text-2xl md:text-3xl font-extrabold text-white mb-8 md:mb-10">The choice is yours.</h3>
+            
+            <div class="relative group inline-block w-full sm:w-auto px-4 sm:px-0">
+                <div class="absolute -inset-1 brand-gradient rounded-xl blur-lg opacity-60 group-hover:opacity-100 transition duration-300"></div>
+                <a href="#pricing" class="relative flex sm:inline-flex items-center justify-center px-6 py-4 md:px-10 md:py-6 text-base md:text-xl font-bold rounded-xl text-white bg-brand-bg border border-white/20 hover:bg-transparent transition-all duration-300 transform group-hover:-translate-y-1 w-full">
+                    Choose Your Track Before it Fills Up
+                    <i class="fa-solid fa-arrow-right ml-2 md:ml-3 text-brand-fuchsia"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-bg py-10 md:py-12 border-t border-white/5 text-center relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-center gap-2 md:gap-3 mb-4 md:mb-6">
+                <img src="logo.png" alt="TheStartupSchool Logo" class="w-6 h-6 md:w-8 md:h-8 rounded-md opacity-80 object-cover">
+                <span class="text-white font-bold tracking-widest uppercase text-base md:text-lg">The<span class="text-brand-gradient">Startup</span>School</span>
+            </div>
+            <p class="text-slate-500 text-xs md:text-sm font-medium mb-4 md:mb-0">
+                &copy; 2026 TheStartupSchool. All rights reserved. 
+            </p>
+            <div class="mt-2 md:mt-6 flex justify-center gap-4 md:gap-6 text-xs md:text-sm text-slate-500 font-medium">
+                <a href="#" class="hover:text-brand-fuchsia transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-brand-purple transition-colors">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, observerOptions);
+
+            const sections = document.querySelectorAll('.fade-in-section');
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Navbar scroll effect
+            const nav = document.querySelector('nav');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 10) {
+                    nav.classList.add('bg-[#0f172a]/90', 'backdrop-blur-xl', 'shadow-[0_4px_20px_rgba(0,0,0,0.5)]');
+                    nav.classList.remove('glass-card');
+                } else {
+                    nav.classList.remove('bg-[#0f172a]/90', 'backdrop-blur-xl', 'shadow-[0_4px_20px_rgba(0,0,0,0.5)]');
+                    nav.classList.add('glass-card');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
