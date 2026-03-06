@@ -75,7 +75,6 @@
             overflow-x: hidden;
         }
 
-        /* Core Brand Gradient Utilities */
         .brand-gradient {
             background: linear-gradient(to right, #8b5cf6, #d946ef);
         }
@@ -104,7 +103,6 @@
             pointer-events: none;
         }
 
-        /* Ambient UI */
         .glass-card {
             background: rgba(15, 23, 42, 0.6);
             backdrop-filter: blur(16px);
@@ -126,7 +124,6 @@
             }
         }
 
-        /* Fade Animations */
         .fade-in-section {
             opacity: 0;
             transform: translateY(20px);
@@ -141,14 +138,12 @@
             visibility: visible;
         }
 
-        /* Icon Gradient */
         .icon-gradient {
             background: linear-gradient(135deg, #8b5cf6, #d946ef);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* Custom Accordion for FAQs */
         details>summary {
             list-style: none;
         }
@@ -161,7 +156,6 @@
 
 <body class="antialiased selection:bg-brand-purple selection:text-white relative">
 
-    <!-- Global Background Texture -->
     <div class="fixed inset-0 bg-grid-pattern z-[-1] pointer-events-none"></div>
 
     <!-- Navigation -->
@@ -192,7 +186,6 @@
 
     <!-- Hero Section -->
     <header class="relative pt-32 pb-16 md:pt-40 md:pb-24 lg:pt-56 lg:pb-32 overflow-hidden">
-        <!-- Animated Background Orbs -->
         <div
             class="absolute top-0 -left-4 w-64 h-64 md:w-96 md:h-96 bg-brand-purple rounded-full mix-blend-screen filter blur-[90px] md:blur-[128px] opacity-30 animate-blob pointer-events-none">
         </div>
@@ -233,7 +226,6 @@
             </p>
 
             <div class="flex flex-col items-center justify-center gap-4 md:gap-6 w-full max-w-md mx-auto sm:max-w-none">
-                <!-- Glowing Primary Button -->
                 <div class="relative group w-full sm:w-auto">
                     <div
                         class="absolute -inset-1 brand-gradient rounded-xl blur-lg opacity-60 group-hover:opacity-100 transition duration-300">
@@ -261,7 +253,6 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-6 lg:gap-12 relative">
-                <!-- Connector Line (Desktop) -->
                 <div
                     class="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-px bg-gradient-to-r from-slate-700 via-brand-purple to-brand-fuchsia z-0">
                 </div>
@@ -310,13 +301,12 @@
                     </ul>
                 </div>
 
-                <!-- Founder 2 (The Beautiful One) -->
+                <!-- Founder 2 -->
                 <div
                     class="glass-card rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 relative overflow-hidden z-10 border-brand-gradient shadow-[0_10px_30px_-10px_rgba(139,92,246,0.3)] md:shadow-[0_20px_50px_-15px_rgba(139,92,246,0.3)]">
                     <div class="absolute top-0 right-0 p-4 md:p-6 opacity-10">
                         <i class="fa-solid fa-check text-6xl md:text-8xl icon-gradient"></i>
                     </div>
-                    <!-- Ambient Inner Glow -->
                     <div
                         class="absolute -top-16 -right-16 md:-top-24 md:-right-24 w-32 h-32 md:w-48 md:h-48 bg-brand-fuchsia rounded-full mix-blend-screen filter blur-[60px] md:blur-[80px] opacity-40">
                     </div>
@@ -361,30 +351,26 @@
             </div>
         </div>
     </section>
-    <!-- Why Us Section (Now: What do you get) -->
+
+    <!-- Why Us Section -->
     <section class="py-16 md:py-24 relative overflow-hidden" id="why-us">
-        <!-- Huge abstract backdrop -->
         <div
             class="absolute right-0 top-1/2 -translate-y-1/2 w-full max-w-2xl h-[400px] md:h-[600px] brand-gradient rounded-full mix-blend-screen filter blur-[100px] md:blur-[150px] opacity-10 pointer-events-none">
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative fade-in-section">
             <div class="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
-                <!-- Image Side (Rendered first naturally on mobile) -->
                 <div class="relative">
                     <div
                         class="relative rounded-2xl md:rounded-3xl p-1 md:p-2 brand-gradient bg-opacity-10 backdrop-blur-sm animate-float">
                         <div
                             class="aspect-[4/3] bg-brand-bg rounded-xl md:rounded-2xl overflow-hidden relative border border-white/10 flex items-center justify-center bg-slate-900 shadow-inner">
-
-                            <!-- Technical Jargons Uploaded Image -->
                             <img src="jargons.png" alt="Technical Jargons Collage"
                                 class="absolute inset-0 w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
 
-                <!-- Text Side -->
                 <div class="text-center md:text-left">
                     <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 md:mb-8 leading-tight">
                         What do you get in <br class="hidden lg:block" />
@@ -395,52 +381,43 @@
                         class="space-y-3.5 text-sm md:text-base text-slate-300 font-light text-left inline-block w-full">
                         <li class="flex items-start gap-3">
                             <i class="fa-solid fa-check text-brand-purple mt-1.5 shrink-0"></i>
-                            <span>Talk to investors with confidence</span>
+                            <span>Introduction to the complete fundraising process</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <i class="fa-solid fa-check text-brand-purple mt-1.5 shrink-0"></i>
-                            <span>Cover all financial jargons that an investor may throw</span>
+                            <span>Data Room Preparation and documents required</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <i class="fa-solid fa-check text-brand-purple mt-1.5 shrink-0"></i>
-                            <span>Know all Legal documents you may have to sign such as Term sheet, SHA etc</span>
+                            <span>All basic financial jargons and key terms every founder should know</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <i class="fa-solid fa-check text-brand-purple mt-1.5 shrink-0"></i>
-                            <span>What happens after the investor says yes and why it takes time to get the investors'
-                                money</span>
+                            <span>Introduction to all agreements required — Term Sheet, SHA, and more</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <i class="fa-solid fa-check text-brand-purple mt-1.5 shrink-0"></i>
-                            <span>Documents required to prepare the data room</span>
+                            <span>Cap Table management fundamentals</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <i class="fa-solid fa-check text-brand-purple mt-1.5 shrink-0"></i>
-                            <span>What are type of investors Angel vs VC vs PE vs Family Office</span>
+                            <span>Investor Outreach strategies</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <i class="fa-solid fa-check text-brand-purple mt-1.5 shrink-0"></i>
-                            <span>How to decide which investor to choose</span>
+                            <span>Pitch Deck preparation and pitching it the right way</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <i class="fa-solid fa-check text-brand-purple mt-1.5 shrink-0"></i>
-                            <span>Why 95% of startups fail to raise?</span>
+                            <span>Legal Compliance essentials for startups</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <i class="fa-solid fa-check text-brand-purple mt-1.5 shrink-0"></i>
-                            <span>Cap Table calculations</span>
+                            <span>Access to tools and resources wherever needed</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <i class="fa-solid fa-check text-brand-purple mt-1.5 shrink-0"></i>
-                            <span>How to prepare a pitch deck that raises funds</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-check text-brand-purple mt-1.5 shrink-0"></i>
-                            <span>How to shorten your fund raising process</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-check text-brand-purple mt-1.5 shrink-0"></i>
-                            <span>Access to tools, resources and everything critical</span>
+                            <span>Certificate of Participation – Basic Level</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <i class="fa-solid fa-plus text-brand-fuchsia shrink-0 text-lg"></i>
@@ -451,6 +428,7 @@
             </div>
         </div>
     </section>
+
     <!-- Curriculum Tracks -->
     <section class="py-16 md:py-24 relative" id="curriculum">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 fade-in-section">
@@ -461,7 +439,7 @@
             </div>
 
             <div class="space-y-8 md:space-y-10">
-                <!-- Track 1: Basic Cohort -->
+                <!-- ===== TRACK 1: BASIC COHORT ===== -->
                 <div
                     class="glass-card rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-12 border border-white/5 hover:border-white/20 transition-all duration-500 group">
                     <div class="md:flex gap-8 lg:gap-12 items-start">
@@ -472,16 +450,16 @@
                             </div>
                             <h3
                                 class="text-2xl md:text-3xl font-bold mb-1 text-white group-hover:text-brand-purple transition-colors">
-                                Fund Raising Essentials</h3>
-                            <p class="text-sm md:text-base text-brand-purple mb-6 font-medium">(Fund Raising Basics +1)
-                            </p>
+                                Fund Raising Basics</h3>
 
-                            <div class="mb-6 md:mb-8">
+                            <!-- WHO IS THIS FOR — with top margin -->
+                            <div class="mt-6 md:mt-8 mb-6 md:mb-8">
                                 <h4
                                     class="text-white text-sm md:text-base font-semibold mb-2 md:mb-3 flex items-center gap-2">
                                     <i class="fa-solid fa-crosshairs text-brand-purple opacity-70"></i> Who is this for?
                                 </h4>
-                                <p class="text-sm text-slate-400 leading-relaxed font-light">Founders actively preparing to raise funds right now</p>
+                                <p class="text-sm text-slate-400 leading-relaxed font-light">Anyone stepping into the
+                                    world of startup fundraising</p>
                             </div>
 
                             <div
@@ -499,63 +477,83 @@
                             <h4 class="text-xl md:text-2xl font-bold mb-4 pb-3 border-b border-white/10 text-white">What
                                 do you get in this workshop:</h4>
 
-                            <ul class="grid sm:grid-cols-2 gap-x-6 gap-y-4 text-sm text-slate-300 font-light mt-6">
-                                <li class="flex items-start gap-3">
-                                    <i class="fa-solid fa-check text-brand-purple mt-1"></i>
-                                    <span>Talk to investors with confidence</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i class="fa-solid fa-check text-brand-purple mt-1"></i>
-                                    <span>Cover all financial jargons that an investor may throw</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i class="fa-solid fa-check text-brand-purple mt-1"></i>
-                                    <span>Know all Legal documents you may have to sign such as Term sheet, SHA
-                                        etc</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i class="fa-solid fa-check text-brand-purple mt-1"></i>
-                                    <span>What happens after the investor says yes and why it takes time to get the
-                                        investors' money</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i class="fa-solid fa-check text-brand-purple mt-1"></i>
-                                    <span>Documents required to prepare the data room</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i class="fa-solid fa-check text-brand-purple mt-1"></i>
-                                    <span>What are types of investors Angel vs VC vs PE vs Family Office</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i class="fa-solid fa-check text-brand-purple mt-1"></i>
-                                    <span>How to decide which investor to choose</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i class="fa-solid fa-check text-brand-purple mt-1"></i>
-                                    <span>Why 95% of startups fail to raise?</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i class="fa-solid fa-check text-brand-purple mt-1"></i>
-                                    <span>Cap Table calculations</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i class="fa-solid fa-check text-brand-purple mt-1"></i>
-                                    <span>How to prepare a pitch deck that raises funds</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i class="fa-solid fa-check text-brand-purple mt-1"></i>
-                                    <span>How to shorten your fund fundraising process</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i class="fa-solid fa-check text-brand-purple mt-1"></i>
-                                    <span>Access to tools, resources and everything critical</span>
-                                </li>
+                            <!-- Module 1: Complete Fundraising Process -->
+                            <div class="mt-6 mb-6">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div
+                                        class="w-8 h-8 rounded-lg bg-brand-purple/20 flex items-center justify-center shrink-0 border border-brand-purple/30">
+                                        <i class="fa-solid fa-map-signs text-brand-purple text-xs"></i>
+                                    </div>
+                                    <h5 class="text-white font-bold text-sm md:text-base">Introduction to the Complete
+                                        Fundraising Process</h5>
+                                </div>
+                                <ul
+                                    class="grid sm:grid-cols-2 gap-x-6 gap-y-3 text-sm text-slate-300 font-light ml-4 pl-7 border-l border-white/5">
+                                    <li class="flex items-start gap-2">
+                                        <i
+                                            class="fa-solid fa-circle-dot text-brand-purple/60 mt-1.5 text-[8px] shrink-0"></i>
+                                        <span>Data Room Preparation</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i
+                                            class="fa-solid fa-circle-dot text-brand-purple/60 mt-1.5 text-[8px] shrink-0"></i>
+                                        <span>Pitch Deck Preparation</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i
+                                            class="fa-solid fa-circle-dot text-brand-purple/60 mt-1.5 text-[8px] shrink-0"></i>
+                                        <span>Types of Agreements — Term Sheet, SHA</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i
+                                            class="fa-solid fa-circle-dot text-brand-purple/60 mt-1.5 text-[8px] shrink-0"></i>
+                                        <span>Cap Table Management</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i
+                                            class="fa-solid fa-circle-dot text-brand-purple/60 mt-1.5 text-[8px] shrink-0"></i>
+                                        <span>Investor Outreach</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i
+                                            class="fa-solid fa-circle-dot text-brand-purple/60 mt-1.5 text-[8px] shrink-0"></i>
+                                        <span>Legal Compliance</span>
+                                    </li>
+                                </ul>
+                            </div>
 
+                            <div class="w-full h-px bg-white/5 mb-6"></div>
+
+                            <ul class="grid sm:grid-cols-2 gap-x-6 gap-y-4 text-sm text-slate-300 font-light">
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-check text-brand-purple mt-1"></i>
+                                    <span>Data Room Preparation — all documents required</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-check text-brand-purple mt-1"></i>
+                                    <span>All basic financial jargons and key terms every founder should know</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-check text-brand-purple mt-1"></i>
+                                    <span>Introduction to all agreements required</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-check text-brand-purple mt-1"></i>
+                                    <span>Pitch Deck creation and how to pitch it effectively</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-check text-brand-purple mt-1"></i>
+                                    <span>Access to tools and resources wherever needed</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-check text-brand-purple mt-1"></i>
+                                    <span>Certificate of Participation – Basic Level</span>
+                                </li>
                             </ul>
 
                             <div class="mt-6 bg-brand-bg/50 p-4 rounded-xl border border-white/5">
                                 <p class="text-xs text-slate-500 italic">
-                                    <strong class="text-slate-400">Note:</strong> What this workshop does not cover -
+                                    <strong class="text-slate-400">Note:</strong> What this workshop does not cover —
                                     Deep dive into term sheet, agreements, Cap Tables explaining every clause,
                                     loopholes, areas of negotiation and case studies. (These are covered in Level 2).
                                 </p>
@@ -564,7 +562,7 @@
                     </div>
                 </div>
 
-                <!-- Track 2: Advanced Cohort -->
+                <!-- ===== TRACK 2: ADVANCED COHORT ===== -->
                 <div
                     class="glass-card rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-12 border-brand-gradient relative overflow-hidden shadow-[0_0_30px_rgba(217,70,239,0.1)] md:shadow-[0_0_40px_rgba(217,70,239,0.15)]">
                     <div
@@ -573,6 +571,8 @@
                     </div>
 
                     <div class="md:flex gap-8 lg:gap-12 items-start mt-2 md:mt-0">
+
+                        <!-- LEFT SIDEBAR -->
                         <div class="md:w-1/3 mb-8 md:mb-0">
                             <div
                                 class="inline-block px-3 py-1 md:px-4 md:py-1.5 brand-gradient text-white font-bold rounded-lg text-xs md:text-sm mb-4 shadow-lg shadow-brand-fuchsia/30">
@@ -580,10 +580,9 @@
                             </div>
                             <h3 class="text-2xl md:text-3xl font-bold mb-1 md:mb-2 text-white">Fund Raising Advanced
                             </h3>
-                            <p class="text-sm md:text-base text-brand-fuchsia mb-6 font-medium">Investor-Ready Bootcamp
-                            </p>
 
-                            <div class="mb-6 md:mb-8">
+                            <!-- WHO IS THIS FOR -->
+                            <div class="mt-6 md:mt-8 mb-6 md:mb-8">
                                 <h4
                                     class="text-white text-sm md:text-base font-semibold mb-2 md:mb-3 flex items-center gap-2">
                                     <i class="fa-solid fa-crosshairs icon-gradient"></i> Who is this for?
@@ -592,22 +591,57 @@
                                     to raise funds right now.</p>
                             </div>
 
+                            <!-- GREEN BOX WITH LEVEL 1 POINTERS -->
                             <div
-                                class="mt-4 inline-block bg-green-500/20 border border-green-500/50 rounded-xl p-3 shadow-[0_0_20px_rgba(34,197,94,0.2)] backdrop-blur-sm">
+                                class="bg-green-500/20 border border-green-500/50 rounded-xl p-4 shadow-[0_0_20px_rgba(34,197,94,0.2)] backdrop-blur-sm">
                                 <p
-                                    class="text-xs md:text-sm font-bold text-green-400 flex items-center gap-2 tracking-wide">
+                                    class="text-xs md:text-sm font-bold text-green-400 flex items-center gap-2 tracking-wide mb-3">
                                     <i class="fa-solid fa-layer-group text-green-400"></i> Includes full access to Level
                                     1
                                 </p>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start gap-2 text-xs text-green-300/80 font-light">
+                                        <i
+                                            class="fa-solid fa-circle-dot mt-1 text-[8px] shrink-0 text-green-400/60"></i>
+                                        <span>Complete Fundraising Process</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-xs text-green-300/80 font-light">
+                                        <i
+                                            class="fa-solid fa-circle-dot mt-1 text-[8px] shrink-0 text-green-400/60"></i>
+                                        <span>Data Room Preparation</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-xs text-green-300/80 font-light">
+                                        <i
+                                            class="fa-solid fa-circle-dot mt-1 text-[8px] shrink-0 text-green-400/60"></i>
+                                        <span>Financial Jargons & Key Terms</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-xs text-green-300/80 font-light">
+                                        <i
+                                            class="fa-solid fa-circle-dot mt-1 text-[8px] shrink-0 text-green-400/60"></i>
+                                        <span>Introduction to Agreements</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-xs text-green-300/80 font-light">
+                                        <i
+                                            class="fa-solid fa-circle-dot mt-1 text-[8px] shrink-0 text-green-400/60"></i>
+                                        <span>Pitch Deck & Pitching</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-xs text-green-300/80 font-light">
+                                        <i
+                                            class="fa-solid fa-circle-dot mt-1 text-[8px] shrink-0 text-green-400/60"></i>
+                                        <span>Tools & Resources</span>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
 
+                        <!-- RIGHT CONTENT -->
                         <div class="md:w-2/3">
                             <h4
                                 class="text-lg md:text-xl font-bold mb-4 pb-3 border-b border-white/10 text-transparent bg-clip-text brand-gradient">
-                                What this workshop shall cover:</h4>
+                                What this workshop shall cover (Advanced):</h4>
 
                             <div class="grid sm:grid-cols-2 gap-x-6 gap-y-6 md:gap-x-8 md:gap-y-6 mt-6">
+
                                 <div class="flex items-start gap-3 md:gap-4">
                                     <div
                                         class="mt-1 w-8 h-8 rounded-lg bg-brand-fuchsia/10 flex items-center justify-center shrink-0 border border-brand-fuchsia/20">
@@ -630,9 +664,8 @@
                                         <h5 class="text-white font-bold mb-1 text-sm md:text-base">Term Sheet Advanced
                                         </h5>
                                         <p class="text-xs md:text-sm text-slate-400 font-light leading-relaxed">Deep
-                                            dive into negotiation areas, areas of potential conflicts, how to protect
-                                            the future and make future funding rounds easier, case study and examples
-                                            driven discussions.</p>
+                                            dive into negotiation areas, potential conflicts, protecting future rounds —
+                                            with case studies.</p>
                                     </div>
                                 </div>
 
@@ -661,7 +694,7 @@
                                     </div>
                                 </div>
 
-                                <div class="sm:col-span-2 flex items-start gap-3 md:gap-4 mt-2">
+                                <div class="flex items-start gap-3 md:gap-4">
                                     <div
                                         class="mt-1 w-8 h-8 rounded-lg bg-brand-fuchsia/10 flex items-center justify-center shrink-0 border border-brand-fuchsia/20">
                                         <i class="fa-solid fa-route text-brand-fuchsia text-xs md:text-sm"></i>
@@ -673,6 +706,20 @@
                                             identify, connect and close funding with the right investor easily.</p>
                                     </div>
                                 </div>
+
+                                <div class="flex items-start gap-3 md:gap-4">
+                                    <div
+                                        class="mt-1 w-8 h-8 rounded-lg bg-brand-fuchsia/10 flex items-center justify-center shrink-0 border border-brand-fuchsia/20">
+                                        <i class="fa-solid fa-award text-brand-fuchsia text-xs md:text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-white font-bold mb-1 text-sm md:text-base">Certificate of
+                                            Participation</h5>
+                                        <p class="text-xs md:text-sm text-slate-400 font-light leading-relaxed">Advanced
+                                            Level certificate provided upon completion.</p>
+                                    </div>
+                                </div>
+
                             </div>
 
                             <!-- Special Benefits Box -->
@@ -685,7 +732,6 @@
                                     <i class="fa-solid fa-gift text-brand-fuchsia"></i> Special Benefits Included
                                 </h5>
                                 <div class="grid sm:grid-cols-2 gap-4 text-sm text-slate-200 font-light relative z-10">
-                                    <!-- Left Column (4 Items) -->
                                     <ul class="space-y-3">
                                         <li class="flex items-start gap-2">
                                             <i class="fa-solid fa-circle-check text-brand-fuchsia mt-1 text-[10px]"></i>
@@ -704,15 +750,10 @@
                                             <span><strong>1 Year Free</strong> Community Membership</span>
                                         </li>
                                     </ul>
-                                    <!-- Right Column (3 Items) -->
                                     <ul class="space-y-3">
                                         <li class="flex items-start gap-2">
                                             <i class="fa-solid fa-circle-check text-brand-fuchsia mt-1 text-[10px]"></i>
                                             <span>Free Access to Session on DPIIT Startup India Registration</span>
-                                        </li>
-                                        <li class="flex items-start gap-2">
-                                            <i class="fa-solid fa-circle-check text-brand-fuchsia mt-1 text-[10px]"></i>
-                                            <span>Certificate of Participation</span>
                                         </li>
                                         <li class="flex items-start gap-2">
                                             <i class="fa-solid fa-circle-check text-brand-fuchsia mt-1 text-[10px]"></i>
@@ -731,7 +772,6 @@
 
     <!-- Lead Mentor Section -->
     <section class="py-16 md:py-24 relative overflow-hidden" id="mentor">
-        <!-- Background Elements -->
         <div
             class="absolute left-0 top-1/2 -translate-y-1/2 w-full max-w-xl h-[300px] md:h-[500px] bg-brand-purple rounded-full mix-blend-screen filter blur-[120px] md:blur-[180px] opacity-10 pointer-events-none">
         </div>
@@ -748,7 +788,6 @@
 
             <div
                 class="max-w-4xl mx-auto glass-card rounded-3xl border-brand-gradient p-8 md:p-12 relative overflow-hidden flex flex-col items-center gap-8 md:gap-12 shadow-[0_10px_40px_-15px_rgba(139,92,246,0.2)] text-center">
-                <!-- Decorative Glow inside card -->
                 <div
                     class="absolute -top-10 -left-10 w-40 h-40 bg-brand-purple rounded-full mix-blend-screen filter blur-[40px] opacity-30">
                 </div>
@@ -756,7 +795,6 @@
                     class="absolute -bottom-10 -right-10 w-40 h-40 bg-brand-fuchsia rounded-full mix-blend-screen filter blur-[40px] opacity-30">
                 </div>
 
-                <!-- Mentor Info -->
                 <div class="z-10">
                     <div
                         class="inline-block px-4 py-1.5 brand-gradient text-white font-bold rounded-lg text-sm mb-6 shadow-lg shadow-brand-fuchsia/30 uppercase tracking-widest">
@@ -780,29 +818,22 @@
         </div>
     </section>
 
-    <!-- Founder's Work & Proof Section (Founder Media) -->
+    <!-- Founder's Work & Proof Section -->
     <section
         class="py-20 md:py-24 bg-transparent text-text-primary border-t border-functional-border relative z-10 fade-in-section">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-4">
-                
-            </div>
-
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Block 1: The Bootcamp -->
                 <div
                     class="glass-card border border-white/10 rounded-xl p-6 hover:border-brand-purple transition-all duration-300 group flex flex-col h-full transform hover:-translate-y-2">
                     <h3 class="text-xl font-bold text-white mb-4 text-center">Mentor Panel: E-Cell IIT Madras</h3>
                     <div
                         class="aspect-video bg-brand-bg rounded-lg mb-6 flex items-center justify-center border border-white/5 group-hover:border-brand-purple/50 transition relative overflow-hidden">
-                        <!-- Fallback icon -->
                         <div class="absolute inset-0 flex items-center justify-center text-brand-purple/20">
                             <i class="fa-solid fa-graduation-cap text-6xl"></i>
                         </div>
                         <img src="bootcamp.jpeg" alt="Mentor Panel at IIT Madras" onerror="this.style.opacity='0'"
                             class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-300 relative z-10">
                     </div>
-
                     <p class="text-slate-400 text-sm mb-6 flex-grow font-light">
                         Invited as a Mentor at E-Cell IIT Madras. Mentoring early-stage founders, reviewing startup
                         ideas, and providing practical guidance on execution and validation.
@@ -814,13 +845,11 @@
                     </a>
                 </div>
 
-                <!-- Block 2: IIM Rohtak -->
                 <div
                     class="glass-card border border-white/10 rounded-xl p-6 hover:border-brand-fuchsia transition-all duration-300 group flex flex-col h-full transform hover:-translate-y-2">
                     <h3 class="text-xl font-bold text-white mb-4 text-center">IIM ROHTAK: JUDGE & MENTOR</h3>
                     <div
                         class="aspect-video bg-brand-bg rounded-lg mb-6 flex items-center justify-center border border-white/5 group-hover:border-brand-fuchsia/50 transition relative overflow-hidden">
-                        <!-- Fallback icon -->
                         <div class="absolute inset-0 flex items-center justify-center text-brand-fuchsia/20">
                             <i class="fa-solid fa-gavel text-6xl"></i>
                         </div>
@@ -837,18 +866,14 @@
                     </a>
                 </div>
 
-                <!-- Block 3: YouTube Video -->
                 <div
                     class="glass-card border border-white/10 rounded-xl p-6 hover:border-red-500 transition-all duration-300 group flex flex-col h-full transform hover:-translate-y-2">
                     <h3 class="text-xl font-bold text-white mb-4 text-center">SESSION AT DOON B. SCHOOL</h3>
 
                     <div onclick="playVideo(this, 'tt_PVE_A3wU')"
                         class="cursor-pointer aspect-video bg-brand-bg rounded-lg mb-6 flex items-center justify-center border border-white/5 group-hover:border-red-500/50 transition relative overflow-hidden">
-                        <!-- Real YouTube Thumbnail -->
                         <img src="https://img.youtube.com/vi/tt_PVE_A3wU/hqdefault.jpg" alt="Session Thumbnail"
                             class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-300">
-
-                        <!-- Play Button Overlay -->
                         <div class="absolute inset-0 flex items-center justify-center z-10">
                             <div
                                 class="w-14 h-14 bg-red-600 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition duration-300">
@@ -873,7 +898,6 @@
 
     <!-- Pricing Section -->
     <section class="py-16 md:py-32 relative" id="pricing">
-        <!-- Intense glow behind pricing -->
         <div
             class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-[300px] md:h-[500px] brand-gradient rounded-full mix-blend-screen filter blur-[150px] md:blur-[200px] opacity-10 pointer-events-none">
         </div>
@@ -932,7 +956,6 @@
                         </li>
                     </ul>
 
-                    <!-- Interactive Reveal Area -->
                     <div class="mt-auto w-full">
                         <button id="btn-reveal-basic" onclick="revealOffer('basic')"
                             class="w-full py-4 rounded-xl bg-slate-800 text-white font-bold border border-white/10 hover:bg-slate-700 transition-all flex items-center justify-center gap-2 animate-pulse-scale shadow-[0_0_15px_rgba(139,92,246,0.2)]">
@@ -943,7 +966,7 @@
                             <a href="https://rzp.io/rzp/bUPzmgpV" target="_blank"
                                 class="w-full block text-center px-4 py-4 rounded-xl bg-brand-purple hover:bg-brand-fuchsia border border-white/10 text-white font-bold transition-colors text-base md:text-lg shadow-[0_0_20px_rgba(139,92,246,0.4)] animate-pop-in">
                                 Early Bird Offer – ₹499 <br />
-                                <span class="text-sm font-medium text-white/90">Avail Today!!</span>
+                                <span class="text-sm font-medium text-white/90">Click here to Avail Today!!</span>
                             </a>
                             <p class="text-xs text-slate-400 mt-3 text-center animate-pop-in"
                                 style="animation-delay: 0.1s;">*Early bird valid only till 20th March</p>
@@ -974,7 +997,6 @@
                     </div>
 
                     <ul class="mb-8 space-y-4 md:space-y-5 flex-1">
-                        <!-- Redesigned Calendar and Timing Section -->
                         <li class="flex items-start gap-3 md:gap-4">
                             <div
                                 class="mt-1 w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center border border-white/5 shrink-0">
@@ -996,7 +1018,6 @@
                                 <span class="text-xs text-slate-400 block">Live on Zoom</span>
                             </div>
                         </li>
-                        <!-- Second Phase -->
                         <li class="flex items-start gap-3 md:gap-4 border-t border-white/5 pt-4 mt-2">
                             <div
                                 class="mt-1 w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center border border-white/5 shrink-0">
@@ -1026,7 +1047,6 @@
                         </li>
                     </ul>
 
-                    <!-- Interactive Reveal Area -->
                     <div class="mt-auto w-full">
                         <div id="btn-reveal-advanced" class="relative group w-full cursor-pointer animate-pulse-scale"
                             onclick="revealOffer('advanced')">
@@ -1047,7 +1067,7 @@
                                 <a href="https://rzp.io/rzp/qwYJvOq" target="_blank"
                                     class="relative w-full block text-center px-4 py-4 rounded-xl brand-gradient text-white font-bold transition-all transform group-hover:-translate-y-1 text-base md:text-lg">
                                     Early Bird Offer – ₹1499 <br />
-                                    <span class="text-sm font-medium text-white/90">Avail Today!!</span>
+                                    <span class="text-sm font-medium text-white/90">Click here to Avail Today!!</span>
                                 </a>
                             </div>
                             <p class="text-xs text-slate-400 mt-3 text-center animate-pop-in"
@@ -1063,9 +1083,8 @@
         </div>
     </section>
 
-    <!-- Final CTA Flow (In the lens: FAQs > Transformation > Queries > FOMO Line > Avail Offer) -->
+    <!-- Final CTA Flow -->
     <section class="py-20 relative border-t border-white/5 overflow-hidden bg-[#0A0F1C]">
-        <!-- Background elements -->
         <div class="absolute inset-0 bg-gradient-to-b from-transparent to-brand-purple/10 pointer-events-none"></div>
         <div
             class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[400px] md:w-[800px] h-[150px] md:h-[300px] brand-gradient rounded-[100%] filter blur-[80px] md:blur-[120px] opacity-10 pointer-events-none">
@@ -1073,14 +1092,13 @@
 
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-24">
 
-            <!-- 1. FAQs Section -->
+            <!-- FAQs -->
             <div class="fade-in-section">
                 <div class="text-center mb-10">
                     <h2 class="text-3xl md:text-5xl font-extrabold mb-4">Frequently Asked Questions</h2>
                     <div class="w-16 h-1 brand-gradient mx-auto rounded-full"></div>
                 </div>
                 <div class="space-y-4 max-w-4xl mx-auto">
-                    <!-- FAQ 1 -->
                     <details class="group glass-card rounded-xl border border-white/5 overflow-hidden">
                         <summary
                             class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-white hover:text-brand-fuchsia transition-colors">
@@ -1095,7 +1113,6 @@
                             when you can ask questions and engage directly with the mentor in real-time.
                         </div>
                     </details>
-                    <!-- FAQ 2 -->
                     <details class="group glass-card rounded-xl border border-white/5 overflow-hidden">
                         <summary
                             class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-white hover:text-brand-fuchsia transition-colors">
@@ -1106,11 +1123,10 @@
                         </summary>
                         <div
                             class="text-slate-400 font-light p-5 pt-0 text-sm md:text-base leading-relaxed border-t border-white/5 mt-2">
-                            Yes, all live sessions are recorded. The recordings will be made available to you so you can
-                            review the material and templates at your own pace.
+                            If you miss a session, recordings will NOT be provided. However, you can email our team and
+                            we will allow you to attend that session in an upcoming cohort.
                         </div>
                     </details>
-                    <!-- FAQ 3 -->
                     <details class="group glass-card rounded-xl border border-white/5 overflow-hidden">
                         <summary
                             class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-white hover:text-brand-fuchsia transition-colors">
@@ -1127,7 +1143,6 @@
                             <strong>Advanced Cohort</strong> is exactly what you need.
                         </div>
                     </details>
-                    <!-- FAQ 4 -->
                     <details class="group glass-card rounded-xl border border-white/5 overflow-hidden">
                         <summary
                             class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-white hover:text-brand-fuchsia transition-colors">
@@ -1144,7 +1159,6 @@
                             you miles ahead of founders who learn the hard way.
                         </div>
                     </details>
-                    <!-- FAQ 5 -->
                     <details class="group glass-card rounded-xl border border-white/5 overflow-hidden">
                         <summary
                             class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-white hover:text-brand-fuchsia transition-colors">
@@ -1160,7 +1174,6 @@
                             to 6:30 PM. All sessions are live on Zoom, designed to fit around a founder's schedule.
                         </div>
                     </details>
-                    <!-- FAQ 6 -->
                     <details class="group glass-card rounded-xl border border-white/5 overflow-hidden">
                         <summary
                             class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-white hover:text-brand-fuchsia transition-colors">
@@ -1177,7 +1190,6 @@
                             fundraising process. The rest is in your hands.
                         </div>
                     </details>
-                    <!-- FAQ 7 -->
                     <details class="group glass-card rounded-xl border border-white/5 overflow-hidden">
                         <summary
                             class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-white hover:text-brand-fuchsia transition-colors">
@@ -1189,12 +1201,11 @@
                         <div
                             class="text-slate-400 font-light p-5 pt-0 text-sm md:text-base leading-relaxed border-t border-white/5 mt-2">
                             Free content gives you information. This program gives you a system. You get live
-                            interaction with a mentor who has done this in the real world, access to 100+ pitch decks
+                            interaction with a mentor who has done this in the real world, access to 80+ pitch decks
                             that actually raised money, legal and financial frameworks built for Indian startups, and a
                             founder community — all in one place. No algorithm, no fluff.
                         </div>
                     </details>
-                    <!-- FAQ 8 -->
                     <details class="group glass-card rounded-xl border border-white/5 overflow-hidden">
                         <summary
                             class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-white hover:text-brand-fuchsia transition-colors">
@@ -1213,7 +1224,7 @@
                 </div>
             </div>
 
-            <!-- 2. Transformation Section (Reverting to original style) -->
+            <!-- Transformation -->
             <div class="fade-in-section">
                 <div class="relative group max-w-4xl mx-auto">
                     <div
@@ -1232,7 +1243,7 @@
                 </div>
             </div>
 
-            <!-- 3. Queries (Form & Contact) -->
+            <!-- Contact -->
             <div class="fade-in-section">
                 <div class="text-center mb-10">
                     <h2 class="text-3xl md:text-5xl font-extrabold mb-4">Contact Us</h2>
@@ -1241,13 +1252,11 @@
                 </div>
 
                 <div class="max-w-4xl mx-auto flex flex-col gap-8">
-                    <!-- WhatsApp Card -->
                     <div
                         class="glass-card border border-white/10 rounded-2xl p-6 md:p-8 text-center hover:border-green-500/50 transition-colors group relative overflow-hidden">
                         <div
                             class="absolute -top-10 -right-10 w-32 h-32 bg-green-500 rounded-full mix-blend-screen filter blur-[40px] opacity-20 group-hover:opacity-40 transition-opacity">
                         </div>
-
                         <div
                             class="w-16 h-16 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform relative z-10 shadow-[0_0_15px_rgba(34,197,94,0.3)]">
                             <i class="fa-brands fa-whatsapp text-3xl"></i>
@@ -1260,9 +1269,7 @@
                             Now <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-xs"></i></a>
                     </div>
 
-                    <!-- Form Side (Acts as Email Sender) -->
                     <div class="glass-card border border-white/10 rounded-2xl p-6 md:p-8 relative overflow-hidden">
-                        <!-- Darker inner bg -->
                         <div class="absolute inset-0 bg-[#0f1423] opacity-50 z-0"></div>
                         <div class="relative z-10">
                             <div class="mb-6 text-center">
@@ -1305,7 +1312,7 @@
                 </div>
             </div>
 
-            <!-- 4 & 5. FOMO Line & Avail Offer CTA -->
+            <!-- FOMO & Final CTA -->
             <div class="fade-in-section text-center pb-10">
                 <div
                     class="max-w-4xl mx-auto glass-card border border-brand-purple/50 rounded-2xl p-6 md:p-10 mb-8 shadow-[0_0_20px_rgba(139,92,246,0.2)] relative overflow-hidden">
@@ -1328,7 +1335,6 @@
                     </a>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -1351,15 +1357,10 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script>
-        // Offer Reveal Interaction
         function revealOffer(track) {
-            // Hide the reveal button
             const btnReveal = document.getElementById('btn-reveal-' + track);
             if (btnReveal) btnReveal.style.display = 'none';
-
-            // Show the actual offer and animate it
             const offerContainer = document.getElementById('offer-' + track);
             if (offerContainer) {
                 offerContainer.classList.remove('hidden');
@@ -1367,7 +1368,6 @@
             }
         }
 
-        // Inline YouTube Player
         function playVideo(element, videoId) {
             const iframe = document.createElement('iframe');
             iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1`);
@@ -1375,48 +1375,31 @@
             iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
             iframe.setAttribute('allowfullscreen', 'true');
             iframe.classList.add('absolute', 'inset-0', 'w-full', 'h-full', 'z-20');
-
-            // Clear existing content and append iframe
             element.innerHTML = '';
             element.appendChild(iframe);
-            element.onclick = null; // Remove the click listener once playing
+            element.onclick = null;
         }
 
-        // Form Submission to Mailto
         function submitQueryForm(event) {
             event.preventDefault();
             const name = document.getElementById('query-name').value;
             const city = document.getElementById('query-city').value;
             const email = document.getElementById('query-email').value;
             const phone = document.getElementById('query-phone').value;
-
             const subject = encodeURIComponent('Query Fundraising Workshop #ON15Apr');
             const body = encodeURIComponent(`Name: ${name}\nCity: ${city}\nEmail: ${email}\nContact Number: ${phone}\n\n`);
-
             window.location.href = `mailto:info@thestartupschool.in?subject=${subject}&body=${body}`;
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+            const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                    }
+                    if (entry.isIntersecting) entry.target.classList.add('is-visible');
                 });
             }, observerOptions);
+            document.querySelectorAll('.fade-in-section').forEach(s => observer.observe(s));
 
-            const sections = document.querySelectorAll('.fade-in-section');
-            sections.forEach(section => {
-                observer.observe(section);
-            });
-
-            // Navbar scroll effect
             const nav = document.querySelector('nav');
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 10) {
